@@ -6,7 +6,7 @@ Frontend Development 2 ways:
   - SPA (React/Angular/Vue) = single page application
 
 API REQUEST:
-   - Design    > Traditional API | Rest APi | GraphQL API
+   - Design    > Traditional API | Rest API | GraphQL API
    - Method    > GET(get info) | POST(mutate info)
    - Structure > header | body
   
