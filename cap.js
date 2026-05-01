@@ -3,43 +3,29 @@
    DEFINE                 CALL             
    callback              function
    define                call
-   async/await           then/catch
-   promise               then/catch 
+   async/await           then/catch | async/await
+   promise               then/catch | async/await
 */
 
 // define
 async function division (a, b) {
-    return new Promise((resolve, reject) => {
         if (b === 0) {
-            reject("Not devided by zero"); 
+            throw new Error("Not devided by zero"); 
         } else {
-            setInterval(function(){
-                resolve(a % b);
-            }, 2000);
+                return(a % b);
        }
-    })
 }
 
 // call
-division(10, 3).then(data =>{
-    console.log("Result:",data);
-    console.log(".......")
+async function run() {
+    let result = await division(10, 3);
+    console.log("result one:", result);
 
-    division(10, 4).then(data =>{
-        console.log("Result:",data);
-        console.log(".......")
+    result = await division(10, 4);
+    console.log("result two:", result);
 
-        division(20, 7).then(data =>{
-            console.log("Result:",data);
-            console.log(".......")
-        }).catch(err => {
-            console.log("Error division:", err);
-        });
-        
-    }).catch(err => {
-        console.log("Error division:", err);
-    });
+    result = await division(20, 7);
+    console.log("result three:", result);
     
-}).catch(err => {
-    console.log("Error division:", err);
-});
+}
+run();
